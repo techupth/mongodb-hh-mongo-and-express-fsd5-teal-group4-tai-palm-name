@@ -16,9 +16,15 @@ productRouter.get("/", async (req, res) => {
 productRouter.get("/:id", async (req, res) => {
   const collection = db.collection("products");
   const id = new ObjectId(req.params.id);
-  const newProduct = await collection.findOne({
-    _id: id,
-  });
+  try {
+    const newProduct = await collection.findOne({
+      _id: id,
+    });
+  } catch {
+    return res.status(500).json({
+      message: "Error can't find item ",
+    });
+  }
 
   return res.json({
     message: "Get product successfully.",

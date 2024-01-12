@@ -111,7 +111,14 @@ function EditProductForm() {
       <div className="input-container">
         <label>
           Category
-          <select id="category" name="category" value={category}>
+          <select
+            id="category"
+            name="category"
+            value={category}
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
+          >
             <option disabled value="">
               -- Select a category --
             </option>
