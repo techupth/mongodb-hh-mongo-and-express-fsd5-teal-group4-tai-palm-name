@@ -11,7 +11,6 @@ function EditProductForm() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-
   const getCurrentProduct = async () => {
     const result = await axios(
       `http://localhost:4001/products/${params.productId}`
@@ -24,12 +23,14 @@ function EditProductForm() {
   };
 
   const updateProduct = async () => {
+    const date = new Date().toISOString();
     await axios.put(`http://localhost:4001/products/${params.productId}`, {
       name,
       image: imageUrl,
       price,
       description,
       category,
+      updated_time: date,
     });
     navigate("/");
   };
@@ -122,9 +123,9 @@ function EditProductForm() {
             <option disabled value="">
               -- Select a category --
             </option>
-            <option value="it">IT</option>
-            <option value="fashion">Fashion</option>
-            <option value="food">Food</option>
+            <option value="IT">IT</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Food">Food</option>
           </select>
         </label>
       </div>

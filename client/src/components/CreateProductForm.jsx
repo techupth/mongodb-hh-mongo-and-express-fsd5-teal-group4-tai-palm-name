@@ -4,7 +4,7 @@ import axios from "axios";
 
 function CreateProductForm() {
   const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("https://placehold.co/250x250");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
@@ -107,9 +107,9 @@ function CreateProductForm() {
             <option disabled value="">
               -- Select a category --
             </option>
-            <option value="it">IT</option>
-            <option value="fashion">Fashion</option>
-            <option value="food">Food</option>
+            <option value="IT">IT</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Food">Food</option>
           </select>
         </label>
       </div>
